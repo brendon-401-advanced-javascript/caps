@@ -7,7 +7,7 @@ Caps lab simulating event driven apps using vendor and driver
 
 ### Links and Resources
 
-- [submission PR]()
+- [submission PR](https://github.com/brendon-401-advanced-javascript/caps/pull/1)
 - [ci/cd](https://github.com/brendon-401-advanced-javascript/caps/actions) (GitHub Actions)
 - [back-end server url](http://xyz.com) (when applicable)
 - [front-end application](http://xyz.com) (when applicable)
