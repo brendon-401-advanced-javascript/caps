@@ -1,7 +1,6 @@
 'use strict';
+const io = require('socket.io-client');
 
-const Events = require('events');
+let serverHost = 'http://localhost:5000';
 
-const events = new Events();
-
-module.exports = events;
+const hostConnection = io.connect(serverHost);
