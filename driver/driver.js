@@ -1,5 +1,12 @@
 'use strict';
-const events = require('./events.js');
+const events = require('../events.js');
+
+const io = require('socket.io-client');
+
+
+let serverHost = 'http://localhost:5000';
+
+const hostConnection = io.connect(serverHost);
 
 function inTransit(payload) {
     setTimeout(() => {
@@ -23,5 +30,5 @@ function delivered(payload) {
     },3000)
 }
 
-events.on('create', delivered);
-events.on('create', inTransit);
+// events.on('create', delivered);
+hostConnection.on('create', inTransit);

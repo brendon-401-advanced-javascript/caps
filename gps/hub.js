@@ -10,7 +10,6 @@ function gps(payload) {
     let badGPS = direction[Math.floor(Math.random()*direction.length)];
     console.log(badGPS);
     console.log(payload.Location);
-    
 }
 
 
