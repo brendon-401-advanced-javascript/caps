@@ -18,7 +18,6 @@ function delivered(payload) {
     setTimeout(() => {
         if(payload.event == 'In Transit') {
             payload.event = 'Delivered';
-            
             console.log('EVENT:', payload);
         }
     },3000)
