@@ -10,12 +10,9 @@ const hostConnection = io.connect(serverHost);
 
 function inTransit(payload) {
     setTimeout(() => {
-        if(payload.event == 'Pickup') {
-            setTimeout(() => {
-                console.log('Picking Up Order#:', payload.payload.order_ID);
-            },1000)
+        if(payload.event == 'New Pickup') {
             payload.event = 'In Transit';
-                console.log('EVENT:',payload );
+                hostConnection.emit('pickup',payload );
         }
 
     },1000);
@@ -25,10 +22,10 @@ function delivered(payload) {
     setTimeout(() => {
         if(payload.event == 'In Transit') {
             payload.event = 'Delivered';
-            console.log('EVENT:', payload);
+            hostConnection.emit('delivered', payload);
         }
-    },3000)
+    },3000);
 }
 
-// events.on('create', delivered);
 hostConnection.on('create', inTransit);
+hostConnection.on('pickup', delivered);
